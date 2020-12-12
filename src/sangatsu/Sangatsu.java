@@ -11,10 +11,14 @@ public class Sangatsu
      */
     public static void main(String[] args)
     {
-        /*
-        |1|2|3|
-        |4|X|6|
-        |7|8|9|
-        */
+        Tutorial.ShowTutorial();
+        
+        while (!GameManager.getGameFinish())
+        {
+            Table.setBoardPos();
+            Table.DrawTable();
+        }
+        
+        
     }
 }
