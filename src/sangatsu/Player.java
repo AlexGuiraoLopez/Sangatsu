@@ -5,5 +5,15 @@ package sangatsu;
  */
 public class Player 
 {
+    static String playerName;
     
+    public static void setPlayerName()
+    {
+        playerName = Teclat.llegirString();
+    }
+    
+    public static String getPlayerName()
+    {
+        return playerName;
+    }
 }
