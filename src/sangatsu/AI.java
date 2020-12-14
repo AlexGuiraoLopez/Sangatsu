@@ -41,9 +41,9 @@ public class AI
 
                 Board.setBoardPosValue(Board.getPosIndex(),1); //Asigna valor a la casilla elegida aleatóriamente.
                 break;
-            case 2:
+            case 2: 
                 break;
-            case 3:
+            case 3: 
                 break;
         }
         

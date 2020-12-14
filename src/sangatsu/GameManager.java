@@ -5,10 +5,10 @@ package sangatsu;
  */
 public class GameManager 
 {
-    static boolean playerTurn = true;   //Turno del jugador (en el caso de que sea multijugador se refiere al jugador 1).
     static boolean gameFinish = false;  //Juego terminado.
     static int gameMode;    //Modo de juego.
-    static boolean isPlayerTurn;
+    static boolean isPlayerTurn;    //Turno del jugador (en el caso de que sea multijugador se refiere al jugador 1).
+    static boolean isFirstRun = true; //Indicador de primera tirada del juego.
     
     /**
      * Revisa el estado del tablero para comprobar si hay alguna linea completada y ha ganado uno de los jugadores.
@@ -68,17 +68,24 @@ public class GameManager
         return isPlayerTurn;
     }
     
-    /*
-    public static boolean getPlayerTurn()
+    /**
+     * Getter primera tirada de la partida.
+     * @return 
+     */
+    public static boolean getIsFirstRun()
     {
-        return playerTurn;
+        return isFirstRun;
     }
     
-    public static void setPlayerTurn(boolean _playerTurn)
+    /**
+     * Setter primera tirada de la partida.
+     * @param _isFirstRun 
+     */
+    public static void setIsFirstRun(boolean _isFirstRun)
     {
-        playerTurn = _playerTurn;
+        isFirstRun = _isFirstRun;
     }
-    */
+    
     
     /**
      * Setter modo de juego (1= Un jugador, 2= Multijugador).

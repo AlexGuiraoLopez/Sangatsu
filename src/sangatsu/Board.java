@@ -91,28 +91,42 @@ public class Board
     }
     
     
-    /**
-     * Setter marca un valor en la posición del tablero seleccionada.
-     */
-    public static void setBoardPos()
+  /**
+   * Setter marca un valor en la posición del tablero seleccionada.
+   * @param _player1Name
+   * @param _player2Name 
+   */
+    public static void RunTurn(String _player1Name, String _player2Name)
     {
+        if (GameManager.getIsFirstRun()) //Si es la primera tirada de la partida.
+        {   
+            int randomNum = (int) (Math.random()*2);    //Genera número aleatorio para decidir quien tira primero.
+                  
+            switch (randomNum)
+            {
+                case 0: GameManager.setIsPlayerTurn(true);  //Otorga el primer turno al jugador.
+                    break;
+                case 1: GameManager.setIsPlayerTurn(false); //Otorga el primer turno a la inteligencia artificial o al jugador 2.
+                    break;
+            }
+            GameManager.setIsFirstRun(false); //Falsea el comprobante de primera tirada de la partida.
+        }
+        
         if (GameManager.getGameMode()==2)    //Si el juego se ha seleccionado en modo multijugador.
         {
             if (GameManager.getIsPlayerTurn())  //Si es el turno del jugador 1.
             {
-                System.out.println("Le toca al jugador 1");
+                System.out.println("Le toca a " + _player1Name + ".");
             }
             else    //Si es el turno del jugador 2.
             {
-                System.out.println("Le toca al jugador 2");
+                System.out.println("Le toca a " + _player2Name + ".");
             }
 
             System.out.println("Introduce tu jugada.");
             DrawBoard();    //Dibuja el tablero para que el jugador pueda decidir donde colocar su tirada.
             
             Player.Play();  //El jugador efectúa su jugada.
-
-            
         }
         else //Está seleccionado el modo Un Jugador.
         {  
@@ -120,7 +134,7 @@ public class Board
             
             if (GameManager.getIsPlayerTurn())  //Si es el turno del jugador.
             {
-                System.out.println("¡Adelante " + Player.getPlayerName() + " te toca!");
+                System.out.println("¡Adelante " + _player1Name + " te toca!");
                 Player.Play();  //El jugador realiza efectúa su jugada.
             }
             else //Si es el turno de la inteligencia artificial.
@@ -130,6 +144,5 @@ public class Board
                 AI.Play(AI.getLevel()); //La inteligencia artificial efectúa su jugada.
             }
         }
-           
     }
 }

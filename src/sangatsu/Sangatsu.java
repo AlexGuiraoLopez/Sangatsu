@@ -7,7 +7,11 @@ public class Sangatsu
 {
     public static void main(String[] args)
     {
-        //==================================INTRODUCCIÓN===========================================
+        //================================CREACIÓN DE OBJETOS====================================
+        Player player1 = new Player();
+        Player player2 = new Player();
+          
+        //==================================INTRODUCCIÓN=========================================
         Tutorial.ShowTutorial();    //Muestra el tutorial del juego.
         
         do  //El jugador elige el modo de juego.
@@ -26,32 +30,55 @@ public class Sangatsu
         if (GameManager.getGameMode()==1)   //Si ha elegido el modo Un Jugador
         {
             System.out.println("Introduce tu nombre."); 
-            Player player1 = new Player(Teclat.llegirString()); //Crea un objeto para el jugador e introduce su nombre.
+            player1.setPlayerName(Teclat.llegirString()); //Introduce el nombre del jugador.
             
             do  //El jugador elige la dificultad de la inteligencia artificial.
             {
-            System.out.println("¿Quién es tu rival?");
-            System.out.println("1-Una paloma del parque || 2-Un estudiante || 3-Un programador");
-            AI.setLevel(Teclat.llegirInt());
-            }while(AI.getLevel()!=1&&AI.getLevel()!=2&&AI.getLevel()!=3);
+                System.out.println("¿Quién es tu rival?");
+                System.out.println("1-Una paloma del parque || 2-Un estudiante || 3-Un programador");
+                AI.setLevel(Teclat.llegirInt());
+
+                // TEST ONLY No estan disponibles las dificultades 2 y 3 todavía.
+                if (AI.getLevel()==2 || AI.getLevel()==3)
+                {
+                    System.out.println("El programador está trabajando en esta dificultad. Perdón por la espera.");
+                }
+            }while(AI.getLevel()!=1 /*&&AI.getLevel()!=2&&AI.getLevel()!=3*/);
         }
         else    //Si ha elegido el modo multijugador.
         {
-            System.out.println("Jugador 1 introduce tu nombre:");
-            Player player1 = new Player(Teclat.llegirString());  //Crea un objeto para el jugador 1 e introduce su nombre.
-            System.out.println("Jugador 2 introduce tu nombre:");
-            Player player2 = new Player(Teclat.llegirString());  //Crea un objeto para el jugador 2 e introduce su nombre.
+            System.out.println("Introduce tu nombre:");
+            player1.setPlayerName(Teclat.llegirString());  //Introduce el nombre del jugador1.
+            System.out.println("Introduce el nombre del segundo jugador:");
+            player2.setPlayerName(Teclat.llegirString());  //Introduce el nombre del jugador2.
         }
-        
-        //==============================EJECUCIÓN DEL JUEGO======================================
+        System.out.println("==================================================="); //Imprime separación.
+        //================================EJECUCIÓN DEL JUEGO====================================
         do
         {
-            Board.setBoardPos();
-            GameManager.CheckBoardStatus();
-        }while (!GameManager.getGameFinish());
+            Board.RunTurn(player1.getPlayerName(), player2.getPlayerName());    //Ejecuta un turno.
+            GameManager.CheckBoardStatus(); //Revisa el estado del tablero.
+        }while (!GameManager.getGameFinish());  //Mientras el juego no haya terminado.
         
-        //===================================RESULTADOS==========================================
+        //===================================RESULTADOS=========================================
+        System.out.println("==================================================="); //Imprime separación.
         Board.DrawBoard(); //Dibuja el tablero final.
-        System.out.println("Ha ganado un jugador. ¿Quién es? Eso hay que programarlo todavía.");
+        
+        //Si es el turno del jugador1, la inteligencia artificial o el jugador 2 hicieron el último turno y por lo tanto han ganado.
+        if (GameManager.getIsPlayerTurn())  
+        {
+            if (GameManager.getGameMode()==2)   //Si es modo multijugador.
+            {
+                System.out.println("Ha ganado " + player2.getPlayerName() + ". ¡Vaya crack!" ); //Gana el jugador 2.
+            }
+            else    //Si es modo un jugador.
+            {
+                System.out.println("Ha ganado la CPU. Tendrás que seguir entrenando.");
+            }
+        }
+        else    //Si no es el turno del jugador1 quiere decir que el último turno fue suyo y por lo tanto ha ganado.
+        {
+            System.out.println("Ha ganado " + player1.getPlayerName() + ". ¡Vaya crack!" );
+        }
     }
 }

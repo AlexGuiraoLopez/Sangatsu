@@ -1,35 +1,25 @@
 package sangatsu;
 /**
- * 
  * @author Alex Guirao Lopez <aguiraol2021@cepnet.net>
  */
 public class Player 
 {
-    static String playerName;   //Nombre del jugador.
-    
-    /**
-     * Constructor del jugador.
-     * @param _playerName 
-     */
-    public Player(String _playerName)
-    {
-        playerName = _playerName;
-    }
-    
+    String playerName;   //Nombre del jugador.
+  
     /**
      * Setter nombre del jugador.
+     * @param _playerName 
      */
-    public static void setPlayerName()
+    public void setPlayerName(String _playerName)
     {
-        System.out.println("Introduce tu nombre:");
-        playerName = Teclat.llegirString();
+        playerName = _playerName;
     }
     
     /**
      * Getter nombre del jugador.
      * @return nombre del jugador.
      */
-    public static String getPlayerName()
+    public String getPlayerName()
     {
         return playerName;
     }
@@ -44,9 +34,13 @@ public class Player
 
             if (Board.getPosIndex() <1 || Board.getPosIndex() >9)   //Si la posición no se encuentra en rango válido.
             {
-                System.out.println("El valor introducido no es correcto.");
+                System.out.println("El valor introducido no pertenece a ninguna casilla.");
             }
-        }while(Board.getPosIndex() <1 || Board.getPosIndex() >9);
+            else if (Board.getBoardPosValue(Board.getPosIndex())!=0)    //Si la casilla seleccionada no está vacía.
+            {
+                System.out.println("La casilla seleccionada ya está ocupada por una ficha.");
+            }
+        }while(Board.getPosIndex() <1 || Board.getPosIndex() >9 || Board.getBoardPosValue(Board.getPosIndex())!=0);
         
         if (GameManager.getIsPlayerTurn())  //Si es el turno del Jugador 1...
         {
