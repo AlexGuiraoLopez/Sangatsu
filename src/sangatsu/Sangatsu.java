@@ -12,12 +12,12 @@ public class Sangatsu
         Player player2 = new Player();
           
         //==================================INTRODUCCIÓN=========================================
-        Tutorial.ShowTutorial();    //Muestra el tutorial del juego.
+        System.out.println("Bienvenido a CEP en ralla.");
         
         do  //El jugador elige el modo de juego.
         {
-            System.out.println("¿En qué modalidad quieres jugar?");
-            System.out.println("1-Un jugador || 2-Multijugador");
+            System.out.println("> ¿En qué modalidad quieres jugar?");
+            System.out.print("  1-Un jugador || 2-Multijugador: ");
             GameManager.setGameMode(Teclat.llegirInt());
             
             if (GameManager.getGameMode()<0 || GameManager.getGameMode()>2)
@@ -29,7 +29,7 @@ public class Sangatsu
         
         if (GameManager.getGameMode()==1)   //Si ha elegido el modo Un Jugador
         {
-            System.out.println("Introduce tu nombre."); 
+            System.out.print("> Introduce tu nombre."); 
             player1.setPlayerName(Teclat.llegirString()); //Introduce el nombre del jugador.
             
             do  //El jugador elige la dificultad de la inteligencia artificial.
@@ -47,11 +47,13 @@ public class Sangatsu
         }
         else    //Si ha elegido el modo multijugador.
         {
-            System.out.println("Introduce tu nombre:");
+            System.out.print("> Introduce tu nombre: ");
             player1.setPlayerName(Teclat.llegirString());  //Introduce el nombre del jugador1.
-            System.out.println("Introduce el nombre del segundo jugador:");
+            System.out.print("> Introduce el nombre del segundo jugador: ");
             player2.setPlayerName(Teclat.llegirString());  //Introduce el nombre del jugador2.
         }
+        
+        Tutorial.ShowTutorial();    //Muestra el tutorial del juego.
         System.out.println("==================================================="); //Imprime separación.
         //================================EJECUCIÓN DEL JUEGO====================================
         do

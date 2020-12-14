@@ -122,23 +122,26 @@ public class Board
             {
                 System.out.println("Le toca a " + _player2Name + ".");
             }
-
-            System.out.println("Introduce tu jugada.");
+            
             DrawBoard();    //Dibuja el tablero para que el jugador pueda decidir donde colocar su tirada.
+            
+            System.out.print("> Introduce tu jugada.");
             
             Player.Play();  //El jugador efectúa su jugada.
         }
         else //Está seleccionado el modo Un Jugador.
         {  
-            DrawBoard();    //Dibuja el tablero.
             
             if (GameManager.getIsPlayerTurn())  //Si es el turno del jugador.
             {
-                System.out.println("¡Adelante " + _player1Name + " te toca!");
+                System.out.print("¡Adelante " + _player1Name + " te toca!");
+                DrawBoard();    //Dibuja el tablero.
+                System.out.print("> Introduce tu jugada.");
                 Player.Play();  //El jugador realiza efectúa su jugada.
             }
             else //Si es el turno de la inteligencia artificial.
             {
+                DrawBoard();    //Dibuja el tablero.
                 System.out.println("El contrincante efetúa su jugada.");
                 Time.WaitForSeconds(1000);
                 AI.Play(AI.getLevel()); //La inteligencia artificial efectúa su jugada.

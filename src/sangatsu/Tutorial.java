@@ -9,7 +9,6 @@ public class Tutorial
     
     public static void ShowTutorial()
     {
-        System.out.println("Bienvenido a CEP en ralla.");
         System.out.println("Comprueba que tu teclado tenga esta disposición numérica en la parte derecha:");
         System.out.println();
         System.out.println("|7|8|9|");
