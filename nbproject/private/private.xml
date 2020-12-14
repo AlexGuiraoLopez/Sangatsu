@@ -5,7 +5,10 @@
         <group>
             <file>file:/C:/Users/nexus/Documents/Estudios/DAM/MyProjects/Sangatsu/src/sangatsu/Tutorial.java</file>
             <file>file:/C:/Users/nexus/Documents/Estudios/DAM/MyProjects/Sangatsu/src/sangatsu/Sangatsu.java</file>
-            <file>file:/C:/Users/nexus/Documents/Estudios/DAM/MyProjects/Sangatsu/src/sangatsu/Table.java</file>
+            <file>file:/C:/Users/nexus/Documents/Estudios/DAM/MyProjects/Sangatsu/src/sangatsu/Player.java</file>
+            <file>file:/C:/Users/nexus/Documents/Estudios/DAM/MyProjects/Sangatsu/src/sangatsu/Teclat.java</file>
+            <file>file:/C:/Users/nexus/Documents/Estudios/DAM/MyProjects/Sangatsu/src/sangatsu/Board.java</file>
+            <file>file:/C:/Users/nexus/Documents/Estudios/DAM/MyProjects/Sangatsu/src/sangatsu/AI.java</file>
             <file>file:/C:/Users/nexus/Documents/Estudios/DAM/MyProjects/Sangatsu/src/sangatsu/GameManager.java</file>
         </group>
     </open-files>

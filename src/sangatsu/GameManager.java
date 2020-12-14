@@ -1,71 +1,74 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package sangatsu;
-
 /**
  * 
  * @author Alex Guirao López <aguiraol2021@cepnet.net>
  */
 public class GameManager 
 {
-    static boolean playerTurn = true;
-    static boolean isMulti = true;
-    static boolean gameFinish = false;
-    static int gameMode;
+    static boolean playerTurn = true;   //Turno del jugador (en el caso de que sea multijugador se refiere al jugador 1).
+    static boolean gameFinish = false;  //Juego terminado.
+    static int gameMode;    //Modo de juego.
     static boolean isPlayerTurn;
     
+    /**
+     * Revisa el estado del tablero para comprobar si hay alguna linea completada y ha ganado uno de los jugadores.
+     */
     public static void CheckBoardStatus()
     {
-        if ((Board.getBoardPos(1)==1 && Board.getBoardPos(2)==1 && Board.getBoardPos(3)==1) ||
-               (Board.getBoardPos(1)==2 && Board.getBoardPos(2)==2 && Board.getBoardPos(3)==2))
+        if ((Board.getBoardPosValue(1)==1 && Board.getBoardPosValue(2)==1 && Board.getBoardPosValue(3)==1) ||
+               (Board.getBoardPosValue(1)==2 && Board.getBoardPosValue(2)==2 && Board.getBoardPosValue(3)==2))
         {
-            System.out.println("itsme!");
-        }else if ((Board.getBoardPos(1)==1 && Board.getBoardPos(5)==1 && Board.getBoardPos(9)==1) ||
-               (Board.getBoardPos(1)==2 && Board.getBoardPos(5)==2 && Board.getBoardPos(9)==2))
+            GameManager.setGameFinish(true);
+        }else if ((Board.getBoardPosValue(1)==1 && Board.getBoardPosValue(5)==1 && Board.getBoardPosValue(9)==1) ||
+               (Board.getBoardPosValue(1)==2 && Board.getBoardPosValue(5)==2 && Board.getBoardPosValue(9)==2))
         {
-            System.out.println("itsme!");
-        }else if ((Board.getBoardPos(1)==1 && Board.getBoardPos(4)==1 && Board.getBoardPos(7)==1) ||
-               (Board.getBoardPos(1)==2 && Board.getBoardPos(4)==2 && Board.getBoardPos(7)==2))
+            GameManager.setGameFinish(true);
+        }else if ((Board.getBoardPosValue(1)==1 && Board.getBoardPosValue(4)==1 && Board.getBoardPosValue(7)==1) ||
+               (Board.getBoardPosValue(1)==2 && Board.getBoardPosValue(4)==2 && Board.getBoardPosValue(7)==2))
         {
-            System.out.println("itsme!");
-        }else if ((Board.getBoardPos(2)==1 && Board.getBoardPos(5)==1 && Board.getBoardPos(8)==1) ||
-               (Board.getBoardPos(2)==2 && Board.getBoardPos(5)==2 && Board.getBoardPos(8)==2))
+            GameManager.setGameFinish(true);
+        }else if ((Board.getBoardPosValue(2)==1 && Board.getBoardPosValue(5)==1 && Board.getBoardPosValue(8)==1) ||
+               (Board.getBoardPosValue(2)==2 && Board.getBoardPosValue(5)==2 && Board.getBoardPosValue(8)==2))
         {
-            System.out.println("itsme!");
-        }else if ((Board.getBoardPos(3)==1 && Board.getBoardPos(5)==1 && Board.getBoardPos(7)==1) ||
-               (Board.getBoardPos(3)==2 && Board.getBoardPos(5)==2 && Board.getBoardPos(7)==2))
+            GameManager.setGameFinish(true);
+        }else if ((Board.getBoardPosValue(3)==1 && Board.getBoardPosValue(5)==1 && Board.getBoardPosValue(7)==1) ||
+               (Board.getBoardPosValue(3)==2 && Board.getBoardPosValue(5)==2 && Board.getBoardPosValue(7)==2))
         {
-            System.out.println("itsme!");
-        }else if ((Board.getBoardPos(3)==1 && Board.getBoardPos(6)==1 && Board.getBoardPos(9)==1) ||
-               (Board.getBoardPos(3)==2 && Board.getBoardPos(6)==2 && Board.getBoardPos(9)==2))
+            GameManager.setGameFinish(true);
+        }else if ((Board.getBoardPosValue(3)==1 && Board.getBoardPosValue(6)==1 && Board.getBoardPosValue(9)==1) ||
+               (Board.getBoardPosValue(3)==2 && Board.getBoardPosValue(6)==2 && Board.getBoardPosValue(9)==2))
         {
-            
-        }else if ((Board.getBoardPos(4)==1 && Board.getBoardPos(5)==1 && Board.getBoardPos(6)==1) ||
-               (Board.getBoardPos(4)==2 && Board.getBoardPos(5)==2 && Board.getBoardPos(6)==2))
+            GameManager.setGameFinish(true);
+        }else if ((Board.getBoardPosValue(4)==1 && Board.getBoardPosValue(5)==1 && Board.getBoardPosValue(6)==1) ||
+               (Board.getBoardPosValue(4)==2 && Board.getBoardPosValue(5)==2 && Board.getBoardPosValue(6)==2))
         {
-            System.out.println("itsme!");
-        }else if ((Board.getBoardPos(7)==1 && Board.getBoardPos(8)==1 && Board.getBoardPos(9)==1) ||
-               (Board.getBoardPos(7)==2 && Board.getBoardPos(8)==2 && Board.getBoardPos(9)==2))
+            GameManager.setGameFinish(true);
+        }else if ((Board.getBoardPosValue(7)==1 && Board.getBoardPosValue(8)==1 && Board.getBoardPosValue(9)==1) ||
+               (Board.getBoardPosValue(7)==2 && Board.getBoardPosValue(8)==2 && Board.getBoardPosValue(9)==2))
         {
-            System.out.println("itsme!");
+            GameManager.setGameFinish(true);
         }
-        
     }
     
+    /**
+     * Setter activar el turno del jugador.
+     * @param _isPlayerTurn 
+     */
     public static void setIsPlayerTurn(boolean _isPlayerTurn)
     {
         isPlayerTurn = _isPlayerTurn;
     }
     
+    /**
+     * Getter turno del jugador.
+     * @return Turno del jugador.
+     */
     public static boolean getIsPlayerTurn()
     {
         return isPlayerTurn;
     }
     
+    /*
     public static boolean getPlayerTurn()
     {
         return playerTurn;
@@ -75,32 +78,39 @@ public class GameManager
     {
         playerTurn = _playerTurn;
     }
+    */
     
-    public static void setIsMulti(boolean _isMulti)
-    {
-        isMulti = _isMulti;
-    }
-    
-    public static boolean getIsMulti()
-    {
-        return isMulti;
-    }
-    
+    /**
+     * Setter modo de juego (1= Un jugador, 2= Multijugador).
+     * @param _gameMode 
+     */
     public static void setGameMode(int _gameMode)
     {
         gameMode = _gameMode;
     }
     
+    /**
+     * Getter modo de juego.
+     * @return  modo de juego (1= Un jugador, 2= Multijugador).
+     */
     public static int getGameMode()
     {
         return gameMode;
     }
     
+    /**
+     * Setter juego terminado.
+     * @param _gameFinish 
+     */
     public static void setGameFinish(boolean _gameFinish)
     {
         gameFinish = _gameFinish;
     }
     
+    /**
+     * Getter juego terminado.
+     * @return El juego ha terminado.
+     */
     public static boolean getGameFinish()
     {
         return gameFinish;
