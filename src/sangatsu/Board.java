@@ -17,6 +17,7 @@ public class Board
     static int[] boardPos= new int [10];   
     
     static int posIndex;   //Posición de la casilla a asignar.
+    static boolean isFull=false; //Comprobante de tablero completo.
     
     /**
      * Dibuja el tablero en la consola.
@@ -148,4 +149,32 @@ public class Board
             }
         }
     }
+    
+    /**
+     * Seter para el tablero isFull;
+     * @param _isFull
+     */
+    public static void setIsFull(boolean _isFull)
+    {
+        isFull = _isFull;
+    }
+    
+    /**
+     * 
+     * @return isFull (true) el tablero ha sido rellenado por completo.
+     */
+    public static boolean getIsFull()
+    {
+        return isFull;
+    }
+    
+    /**
+     * Getter para la cantidad de casillas del tablero.
+     * @return número de casillas que tiene el tablero +1 (ya que la posicion 0 esta en desuso).
+     */
+    public static int getBoardLength()
+    {
+        return boardPos.length;
+    }
 }
+

@@ -60,27 +60,43 @@ public class Sangatsu
         {
             Board.RunTurn(player1.getPlayerName(), player2.getPlayerName());    //Ejecuta un turno.
             GameManager.CheckBoardStatus(); //Revisa el estado del tablero.
-        }while (!GameManager.getGameFinish());  //Mientras el juego no haya terminado.
+        }while (!GameManager.getGameFinish() && (!Board.getIsFull()));  //Mientras el juego no haya terminado.
         
         //===================================RESULTADOS=========================================
         System.out.println("==================================================="); //Imprime separación.
         Board.DrawBoard(); //Dibuja el tablero final.
         
-        //Si es el turno del jugador1, la inteligencia artificial o el jugador 2 hicieron el último turno y por lo tanto han ganado.
-        if (GameManager.getIsPlayerTurn())  
+        if (GameManager.getIsTie()) //Si ha habido un empate.
         {
-            if (GameManager.getGameMode()==2)   //Si es modo multijugador.
+            System.out.println("¡Ha habido un empate!!");
+        }
+        else    //Si algún jugador ha ganado.
+        {
+            //Si es el turno del jugador1, la inteligencia artificial o el jugador 2 hicieron el último turno y por lo tanto han ganado.
+            if (GameManager.getIsPlayerTurn())  
             {
-                System.out.println("Ha ganado " + player2.getPlayerName() + ". ¡Vaya crack!" ); //Gana el jugador 2.
+                if (GameManager.getGameMode()==2)   //Si es modo multijugador.
+                {
+                    System.out.println("Ha ganado " + player2.getPlayerName() + ". ¡Vaya crack!" ); //Gana el jugador 2.
+                }
+                else    //Si es modo un jugador.
+                {
+                    System.out.println("Ha ganado la CPU. Tendrás que seguir entrenando.");
+                }
             }
-            else    //Si es modo un jugador.
+            else    //Si no es el turno del jugador1 quiere decir que el último turno fue suyo y por lo tanto ha ganado.
             {
-                System.out.println("Ha ganado la CPU. Tendrás que seguir entrenando.");
+                System.out.println("Ha ganado " + player1.getPlayerName() + ". ¡Vaya crack!" );
             }
         }
-        else    //Si no es el turno del jugador1 quiere decir que el último turno fue suyo y por lo tanto ha ganado.
-        {
-            System.out.println("Ha ganado " + player1.getPlayerName() + ". ¡Vaya crack!" );
-        }
+        
+        //============================SELECCIÓN DE NUEVA PARTIDA================================
+        
+        //Pregunta si quiere volver a jugar.
+        //Resetea los valores iniciales.
+        //Activa la nueva partida.
+        
+        
+        
     }
 }

@@ -9,7 +9,7 @@ public class GameManager
     static int gameMode;    //Modo de juego.
     static boolean isPlayerTurn;    //Turno del jugador (en el caso de que sea multijugador se refiere al jugador 1).
     static boolean isFirstRun = true; //Indicador de primera tirada del juego.
-    
+    static boolean isTie=false;
     /**
      * Revisa el estado del tablero para comprobar si hay alguna linea completada y ha ganado uno de los jugadores.
      */
@@ -48,6 +48,45 @@ public class GameManager
         {
             GameManager.setGameFinish(true);
         }
+        else if (getGameFinish()==false) //Si no ha terminado el juego.
+        {
+            boolean isEmptyPos = false;
+            
+            for (int i = 1; i < Board.getBoardLength() && isEmptyPos==false;i++)
+            {
+                if (Board.getIsFull()==false)   //Si el tablero no está lleno.
+                {
+                    if (Board.getBoardPosValue(i)==0)   //Si la posición de la casilla actual está vacía.
+                    {
+                        isEmptyPos=true;
+                    }
+                    
+                    if (i==(Board.getBoardLength()-1) && isEmptyPos==false)
+                    {
+                        Board.setIsFull(true);
+                        setIsTie(true);
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+     * Setter para el comprobante de empate.
+     * @param _isTie 
+     */
+    public static void setIsTie(boolean _isTie)
+    {
+        isTie = _isTie;
+    }
+    
+    /**
+     * Getter para el comprobante de empate.
+     * @return  True si es empate.
+     */
+    public static boolean getIsTie()
+    {
+        return isTie;
     }
     
     /**
