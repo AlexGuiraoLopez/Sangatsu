@@ -48,7 +48,7 @@ public class Teclat
 		// Si no es produeix cap error, es retornarà el caràcter llegit
 		String s = llegirString();
 
-		// Controlem que el que s'ha llegit és un caràcter
+		/* Controlem que el que s'ha llegit és un caràcter
 		if(s.length() == 1)
 		{
 			c = s.charAt(0);
@@ -57,7 +57,7 @@ public class Teclat
 		{
 			System.err.println("La dada introduïda no és un caràcter.");
 		}
-
+                                           */
 		return c;
 	}
 

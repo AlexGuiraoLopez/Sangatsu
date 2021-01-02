@@ -16,5 +16,7 @@ public class Tutorial
         System.out.println("|1|2|3|");
         
         System.out.println("Estas teclas con los números marcados representan el tablero del juego. \nTe servirán para escoger una casilla durante tu turno.");
+        System.out.println("(Pulsa intro para continuar...)");
+        Teclat.llegirChar();
     }
 }
