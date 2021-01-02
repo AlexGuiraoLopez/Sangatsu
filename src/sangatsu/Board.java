@@ -176,5 +176,16 @@ public class Board
     {
         return boardPos.length;
     }
+    
+    /**
+     * Resetea los valores del tablero y lo deja vacío.
+     */
+    public static void resetBoard()
+    {
+        for (int i = 0; i<boardPos.length; i++)
+        {
+            boardPos[i]=0;
+        }
+    }
 }
 

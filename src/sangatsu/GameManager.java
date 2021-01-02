@@ -9,7 +9,8 @@ public class GameManager
     static int gameMode;    //Modo de juego.
     static boolean isPlayerTurn;    //Turno del jugador (en el caso de que sea multijugador se refiere al jugador 1).
     static boolean isFirstRun = true; //Indicador de primera tirada del juego.
-    static boolean isTie=false;
+    static boolean isTie=false; //Indicador de empate.
+    static boolean playAgain=true; //Indicador de nueva partida.
     /**
      * Revisa el estado del tablero para comprobar si hay alguna linea completada y ha ganado uno de los jugadores.
      */
@@ -69,6 +70,24 @@ public class GameManager
                 }
             }
         }
+    }
+
+    /**
+     * Selecciona si el jugador quiere volver a jugar de nuevo.
+     * @param _playAgain 
+     */
+    public static void setPlayAgain(boolean _playAgain) 
+    { 
+        playAgain = _playAgain;
+    }
+
+    /**
+     * 
+     * @return (True) si el jugador quiere volver a jugar de nuevo.
+     */
+    public static boolean getPlayAgain() 
+    {
+        return playAgain;
     }
     
     /**

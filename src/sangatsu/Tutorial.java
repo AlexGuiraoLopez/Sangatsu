@@ -6,7 +6,29 @@ package sangatsu;
 public class Tutorial 
 {
     static String userAnswer;
+    static boolean isShowed=false;
+
+    /**
+     * Retorna un valor según se haya mostrado el tutorial alguna vez durante la partida o no.
+     * @return True si ya se ha mostrado el tutorial anteriormente.
+     */
+    public static boolean getIsShowed() 
+    {
+        return isShowed;
+    }
+
+    /**
+     * Setter para el tutorial. Si ya ha sido mostrado pasará a true.
+     * @param isShowed 
+     */
+    public static void setIsShowed(boolean isShowed) 
+    {
+        Tutorial.isShowed = isShowed;
+    }
     
+    /**
+     * Muestra el tutorial del juego.
+     */
     public static void ShowTutorial()
     {
         System.out.println("Comprueba que tu teclado tenga esta disposición numérica en la parte derecha:");
