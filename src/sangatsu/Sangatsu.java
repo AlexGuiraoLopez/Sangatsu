@@ -1,28 +1,28 @@
 package sangatsu;
 /**
  *  Simulador de juego tres en raya.
- * @author Alex Guirao López <aguiraol2021@cepnet.net>
+ * @author Alex Guirao López <alexguiraolopez@gmaIl.com>
  */
 public class Sangatsu 
 {
     public static void main(String[] args)
     {
         //======================================VARIABLES========================================
-        char newGameAns;
+        char newGameAns; //Respuesta para volver a jugar.
         
         //================================CREACIÓN DE OBJETOS====================================
         Player player1 = new Player();
         Player player2 = new Player();
           
         //==================================INTRODUCCIÓN=========================================
-        System.out.println("Bienvenido a CEP en ralla.");
+        System.out.println("Bienvenido a Sangatsu.");
         while (GameManager.getPlayAgain()==true)
         {
             GameManager.setPlayAgain(false);    //Desactiva la nueva partida por si el jugador no quiere volver a jugar.
             
             do  //El jugador elige el modo de juego.
             {
-               System.out.println("> ¿En qué modalidad quieres jugar?");
+               System.out.println("> ¿En qué modalidad quieres jugar? (Escribe el número)");
                System.out.print("  1-Un jugador || 2-Multijugador: ");
                GameManager.setGameMode(Teclat.llegirInt());
 
@@ -43,7 +43,7 @@ public class Sangatsu
                
                do  //El jugador elige la dificultad de la inteligencia artificial.
                {
-                   System.out.println("> ¿Quién es tu rival?");
+                   System.out.println("> ¿Quién es tu rival? (Escribe el número)");
                    System.out.println("1-Una paloma del parque || 2-Un estudiante || 3-Un programador");
                    AI.setLevel(Teclat.llegirInt());
 

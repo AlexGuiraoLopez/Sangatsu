@@ -1,6 +1,6 @@
 package sangatsu;
 /**
- * @author Alex Guirao Lopez <aguiraol2021@cepnet.net>
+ * @author Alex Guirao Lopez <alexguiraolopez@gmaIl.com>
  */
 public class Player 
 {
@@ -39,6 +39,7 @@ public class Player
             else if (Board.getBoardPosValue(Board.getPosIndex())!=0)    //Si la casilla seleccionada no está vacía.
             {
                 System.out.println("La casilla seleccionada ya está ocupada por una ficha.");
+                System.out.println("Introduce de nuevo porfavor.");
             }
         }while(Board.getPosIndex() <1 || Board.getPosIndex() >9 || Board.getBoardPosValue(Board.getPosIndex())!=0);
         

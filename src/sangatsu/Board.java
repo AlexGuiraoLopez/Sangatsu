@@ -1,7 +1,7 @@
 package sangatsu;
 /**
  * Tablero de juego.
- * @author Alex Guirao Lopez <aguiraol2021@cepnet.net>
+ * @author Alex Guirao Lopez  <alexguiraolopez@gmaIl.com>
  */
 public class Board 
 {

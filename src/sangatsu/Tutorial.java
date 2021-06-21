@@ -1,7 +1,7 @@
 package sangatsu;
 /**
- * 
- * @author Alex Guirao Lopez <aguiraol2021@cepnet.net>
+ * Tutorial del juego.
+ * @author Alex Guirao Lopez  <alexguiraolopez@gmaIl.com>
  */
 public class Tutorial 
 {

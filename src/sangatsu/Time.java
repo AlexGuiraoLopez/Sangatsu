@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 /**
  * Tiempo de ejecución del programa.
- * @author Alex Guirao  (aguiraol2021@cepnet.net)
+ * @author Alex Guirao   <alexguiraolopez@gmaIl.com>
  */
 public class Time 
 {

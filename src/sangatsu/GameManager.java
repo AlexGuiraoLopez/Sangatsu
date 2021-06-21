@@ -1,7 +1,7 @@
 package sangatsu;
 /**
  * 
- * @author Alex Guirao López <aguiraol2021@cepnet.net>
+ * @author Alex Guirao López  <alexguiraolopez@gmaIl.com>
  */
 public class GameManager 
 {
